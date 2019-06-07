@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>My test  - {% block title %}{% endblock %}</title>
+        {% include 'css.html'  %}
+        {% include 'js.html' %}
+    </head>    
+    <body>
+        <div class="container">
+            {% block header %}
+            {% endblock %}
+            {% block content %}
+            {% endblock %}
+        </div>
+        {% block custom_js %}{% endblock %}
+        {% block custom_css %}{% endblock %}
+    </body>
+</html>
