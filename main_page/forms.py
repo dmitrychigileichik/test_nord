@@ -5,13 +5,13 @@ from main_page.models import User
 
 class MyAuthenticationForm(AuthenticationForm):
 
-    def confirm_login_allowed(self, user):
-        if not user.is_active:
-            raise forms.ValidationError(
-                self.error_messages['inactive'],
-                code='inactive',
-            )
-
+#    def confirm_login_allowed(self, user):
+#        if not user.is_active:
+#            raise forms.ValidationError(
+#                self.error_messages['inactive'],
+#                code='inactive',
+#            )
+    pass
 
 
 class SignUpForm(UserCreationForm):

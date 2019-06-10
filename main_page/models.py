@@ -1,5 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from django.db.models import signals
+from main_page.tasks import send_email
+ 
+ 
+
 
 class UserAccountManager(BaseUserManager):
     use_in_migrations = True
@@ -27,6 +32,7 @@ class UserAccountManager(BaseUserManager):
         return user
  
     def create_user(self, email=None, password=None, first_name=None, last_name=None, phone_number=None, **extra_fields):
+        extra_fields['is_active'] = True
         return self._create_user(email, password, first_name, last_name, phone_number, **extra_fields)
  
     def create_superuser(self, email, password, **extra_fields):
@@ -60,3 +66,11 @@ class User(AbstractBaseUser, PermissionsMixin):
  
     def __unicode__(self):
         return self.email
+
+
+def user_post_save(sender, instance, signal, *args, **kwargs):
+    if not instance.is_staff:
+        # Send verification email
+        send_email.delay(instance.pk)
+
+signals.post_save.connect(user_post_save, sender=User)
