@@ -95,7 +95,7 @@ pycodestyle==2.3.1
 pycrypto==2.6.1
 pycups==1.9.73
 pydot==1.2.3
-Pygments==2.2.0
+Pygments==2.7.4
 pygobject==3.26.1
 pyinotify==0.9.6
 pyldap==3.0.0.post1
