@@ -44,7 +44,7 @@ Jinja2==2.10.1
 jsonschema==2.6.0
 jupyter-client==5.2.3
 jupyter-core==4.4.0
-jupyterlab==0.34.12
+jupyterlab==1.2.21
 jupyterlab-launcher==0.13.1
 keyring==10.6.0
 keyrings.alt==3.0
