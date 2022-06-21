@@ -69,7 +69,7 @@ nbformat==4.4.0
 netifaces==0.10.4
 notebook==5.7.0
 num2words==0.5.10
-numpy==1.15.2
+numpy==1.22.0
 oauth==1.0.1
 ofxparse==0.14
 olefile==0.45.1
